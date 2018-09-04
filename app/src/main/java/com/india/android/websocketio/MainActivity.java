@@ -3,11 +3,11 @@ package com.india.android.websocketio;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -77,9 +77,6 @@ public class MainActivity extends AppCompatActivity {
                 tvClose.setText(strings[4]);
                 tvVol.setText(strings[5]);
                 liveStockPrice.setText(strings[2]);
-                entries.add(new Entry(entries.size(),Float.parseFloat(strings[5])));
-                entries=entries.subList(1,entries.size()-1);
-                lineChart.invalidate();
             }
         });
     }
@@ -104,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupChart(){
-        LineDataSet dataSet = new LineDataSet(entries, "Volume"); // add entries to dataset
+        LineDataSet dataSet = new LineDataSet(entries, "VOLUME CHART"); // add entries to dataset
         dataSet.setDrawValues(true);
         dataSet.setLineWidth(1f);
         dataSet.setDrawCircles(false);
@@ -115,17 +112,18 @@ public class MainActivity extends AppCompatActivity {
         dataSet.setColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGradientStart));
         Drawable drawable = (ContextCompat.getDrawable(getApplicationContext(), R.drawable.color_graph_gradient));
         dataSet.setFillDrawable(drawable);
+
         lineChart.setDrawGridBackground(false);
         lineChart.setDrawBorders(false);
-
         lineChart.setAutoScaleMinMaxEnabled(false);
         lineChart.setDescription(null);
         lineChart.setTouchEnabled(false);
-        // remove axis
+
+        // edit axes
         YAxis leftAxis = lineChart.getAxisLeft();
         leftAxis.setEnabled(false);
         YAxis rightAxis = lineChart.getAxisRight();
-        rightAxis.setEnabled(false);
+        rightAxis.setLabelCount(4, true);
 
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setEnabled(true);
