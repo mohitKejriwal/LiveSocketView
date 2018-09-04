@@ -10,6 +10,7 @@ import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.Ack;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
+
 import org.json.JSONObject;
 
 import java.net.URISyntaxException;
@@ -23,13 +24,34 @@ import retrofit2.Response;
  * Created by admin on 02-09-2018.
  */
 
- class SocketViewModel extends ViewModel {
+public class SocketViewModel extends ViewModel {
     private MutableLiveData<ArrayList<String>> pastStockData;
     private MutableLiveData<String[]> liveStockData;
 
     private Socket mSocket;
+    private Emitter.Listener onDataReceive = new Emitter.Listener() {
+        @Override
+        public void call(Object... args) {
+            liveStockData.postValue(args[0].toString().split(","));
+            final Ack ack = (Ack) args[args.length - 1];
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    ack.call(1);
+                }
+            }, 5000);                                           //Acknowledgement sent after 5 seconds to reduce the ratio of updates/time
 
-    SocketViewModel(){
+        }
+    };
+    private Emitter.Listener onErrorReceive = new Emitter.Listener() {
+        @Override
+        public void call(Object... args) {
+            System.out.print(args[0]);
+        }
+    };
+
+    public SocketViewModel() {
         pastStockData =new MutableLiveData<>();
         liveStockData = new MutableLiveData<>();
         loadPastData();
@@ -101,29 +123,4 @@ import retrofit2.Response;
             e.printStackTrace();
         }
     }
-
-
-
-    private Emitter.Listener onDataReceive = new Emitter.Listener() {
-        @Override
-        public void call(Object... args) {
-            liveStockData.postValue(args[0].toString().split(","));
-            final Ack ack = (Ack) args[args.length - 1];
-            Handler handler=new Handler(Looper.getMainLooper());
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    ack.call(1);
-                }
-            },5000);                                           //Acknowledgement sent after 5 seconds to reduce the ratio of updates/time
-
-        }
-    };
-
-    private Emitter.Listener onErrorReceive = new Emitter.Listener() {
-        @Override
-        public void call(Object... args) {
-            System.out.print(args[0]);
-        }
-    };
 }
