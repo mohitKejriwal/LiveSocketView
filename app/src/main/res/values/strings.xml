@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">WebSocketIO</string>
+    <string name="company_name">Cake</string>
+    <string name="sell">Sell</string>
+    <string name="buy">Buy</string>
+    <string name="open">Open</string>
+    <string name="close">Today\'s Close</string>
+    <string name="volume">Volume</string>
+    <string name="avg_volume">Avg Volume</string>
+    <string name="day_high">Day High</string>
+    <string name="day_low">Day Low</string>
+    <string name="year_high">52wk High</string>
+    <string name="year_low">52wk Low</string>
+</resources>

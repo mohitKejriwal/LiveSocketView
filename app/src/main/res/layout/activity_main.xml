@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.india.android.websocketio.MainActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/glHor40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/glHor10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/glHor90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/glVer50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/glHor50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/glHor60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/glHor70"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/glHor80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/glHor10"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVer50"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:text="@string/company_name"/>
+
+    <TextView
+        android:id="@+id/tvCurrentStockPrice"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/glHor10"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/glVer50"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:text="-"/>
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/stockChart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glHor10"
+        app:layout_constraintBottom_toTopOf="@id/glHor40"/>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tlRange"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/glHor50"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glHor40"
+        app:tabGravity="fill"
+        app:tabTextColor="@android:color/darker_gray"
+        app:tabSelectedTextColor="@color/colorGraphGradientEnd"
+        app:tabIndicatorColor="@color/colorGraphGradientEnd"
+        app:tabMode="scrollable" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor60"
+        android:background="@android:color/darker_gray"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor70"
+        android:background="@android:color/darker_gray"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor80"
+        android:background="@android:color/darker_gray"
+        />
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintLeft_toLeftOf="@id/glVer50"
+        app:layout_constraintTop_toBottomOf="@id/glHor50"
+        app:layout_constraintBottom_toTopOf="@id/glHor90"
+        android:background="@android:color/darker_gray"
+        />
+    <TextView
+        android:id="@+id/tvDayHighLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor50"
+        app:layout_constraintBottom_toTopOf="@id/glHor60"
+        app:layout_constraintLeft_toLeftOf="parent"
+        style="@style/TextViewStyle"
+        android:textStyle="bold"
+        android:text="@string/day_high"/>
+
+    <TextView
+        android:id="@+id/tvDayHighValue"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor50"
+        app:layout_constraintBottom_toTopOf="@id/glHor60"
+        app:layout_constraintRight_toLeftOf="@id/glVer50"
+        style="@style/TextViewStyle"
+        android:text="-"/>
+
+
+    <TextView
+        android:id="@+id/tvOpenLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor60"
+        app:layout_constraintBottom_toTopOf="@id/glHor70"
+        app:layout_constraintLeft_toLeftOf="parent"
+        style="@style/TextViewStyle"
+        android:textStyle="bold"
+        android:text="@string/open"/>
+
+    <TextView
+        android:id="@+id/tvOpenValue"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor60"
+        app:layout_constraintBottom_toTopOf="@id/glHor70"
+        app:layout_constraintRight_toLeftOf="@id/glVer50"
+        style="@style/TextViewStyle"
+        android:text="-"/>
+
+    <TextView
+        android:id="@+id/tvAvgVolLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor70"
+        app:layout_constraintBottom_toTopOf="@id/glHor80"
+        app:layout_constraintLeft_toLeftOf="parent"
+        style="@style/TextViewStyle"
+        android:textStyle="bold"
+        android:text="@string/avg_volume"/>
+
+    <TextView
+        android:id="@+id/tvAvgVolValue"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor70"
+        app:layout_constraintBottom_toTopOf="@id/glHor80"
+        app:layout_constraintRight_toLeftOf="@id/glVer50"
+        style="@style/TextViewStyle"
+        android:text="90000"/>
+
+    <TextView
+        android:id="@+id/tvYearHighLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor80"
+        app:layout_constraintBottom_toTopOf="@id/glHor90"
+        app:layout_constraintLeft_toLeftOf="parent"
+        style="@style/TextViewStyle"
+        android:textStyle="bold"
+        android:text="@string/year_high"/>
+
+    <TextView
+        android:id="@+id/tvYearHighValue"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor80"
+        app:layout_constraintBottom_toTopOf="@id/glHor90"
+        app:layout_constraintRight_toLeftOf="@id/glVer50"
+        style="@style/TextViewStyle"
+        android:text="4000"/>
+
+    <TextView
+        android:id="@+id/tvDayLowLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor50"
+        app:layout_constraintBottom_toTopOf="@id/glHor60"
+        app:layout_constraintLeft_toRightOf="@id/glVer50"
+        style="@style/TextViewStyle"
+        android:textStyle="bold"
+        android:text="@string/day_low"/>
+
+    <TextView
+        android:id="@+id/tvDayLowValue"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor50"
+        app:layout_constraintBottom_toTopOf="@id/glHor60"
+        app:layout_constraintRight_toRightOf="parent"
+        style="@style/TextViewStyle"
+        android:text="-"/>
+
+    <TextView
+        android:id="@+id/tvCloseLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor60"
+        app:layout_constraintBottom_toTopOf="@id/glHor70"
+        app:layout_constraintLeft_toRightOf="@id/glVer50"
+        style="@style/TextViewStyle"
+        android:textStyle="bold"
+        android:text="@string/close"/>
+
+    <TextView
+        android:id="@+id/tvCloseValue"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor60"
+        app:layout_constraintBottom_toTopOf="@id/glHor70"
+        app:layout_constraintRight_toRightOf="parent"
+        style="@style/TextViewStyle"
+        android:text="-"/>
+
+    <TextView
+        android:id="@+id/tvVolLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor70"
+        app:layout_constraintBottom_toTopOf="@id/glHor80"
+        app:layout_constraintLeft_toRightOf="@id/glVer50"
+        style="@style/TextViewStyle"
+        android:textStyle="bold"
+        android:text="@string/volume"/>
+
+    <TextView
+        android:id="@+id/tvVolValue"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor70"
+        app:layout_constraintBottom_toTopOf="@id/glHor80"
+        app:layout_constraintRight_toRightOf="parent"
+        style="@style/TextViewStyle"
+        android:text="-"/>
+
+    <TextView
+        android:id="@+id/tvYearLowLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor80"
+        app:layout_constraintBottom_toTopOf="@id/glHor90"
+        app:layout_constraintLeft_toRightOf="@id/glVer50"
+        style="@style/TextViewStyle"
+        android:textStyle="bold"
+        android:text="@string/year_low"/>
+
+    <TextView
+        android:id="@+id/tvYearLowValue"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor80"
+        app:layout_constraintBottom_toTopOf="@id/glHor90"
+        app:layout_constraintRight_toRightOf="parent"
+        style="@style/TextViewStyle"
+        android:text="40"/>
+
+    <TextView
+        android:id="@+id/tvSell"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor90"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVer50"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:textColor="@color/colorGraphGradientEnd"
+        android:background="@drawable/bg_filled_btn"
+        android:text="@string/sell"/>
+
+    <TextView
+        android:id="@+id/tvBuy"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/glHor90"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/glVer50"
+        android:textSize="22sp"
+        android:textColor="@color/colorGraphGradientEnd"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/bg_filled_btn"
+        android:gravity="center"
+        android:text="@string/buy"/>
+</android.support.constraint.ConstraintLayout>
