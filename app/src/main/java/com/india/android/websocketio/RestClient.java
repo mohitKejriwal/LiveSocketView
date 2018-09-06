@@ -18,8 +18,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RestClient {
-    private static RestClient restClient=new RestClient();
     public static ApiService apiService;
+    private static RestClient restClient = new RestClient();
 
     private RestClient(){
         Gson gson=new Gson();
@@ -28,7 +28,7 @@ public class RestClient {
         okHttpBuilder.connectTimeout(TIME_OUT, TimeUnit.SECONDS).readTimeout(TIME_OUT, TimeUnit.SECONDS).writeTimeout(TIME_OUT, TimeUnit.SECONDS);
         HttpLoggingInterceptor interceptor=new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        String BASE_URL=" http://kaboom.rksv.net/api/";
+        String BASE_URL = "//YOUR SERVER BASE URL";
 
         OkHttpClient okHttpClient=okHttpBuilder.addInterceptor(interceptor).addInterceptor(new HeaderInterceptor()).build();
         Retrofit retrofit=new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create(gson)).client(okHttpClient).build();
