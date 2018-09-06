@@ -1,5 +1,5 @@
 # LiveSocketView
-
+/////////////////////////  PROJECT OVERVIEW ////////////////////////
 /STEP 1/ As soon as Main Activity is created a ViewModel class is intantiated using ViewModelProviders class.
 /STEP 2/ ViewModel's constructor contains code to make a call to RestApi, initialize the socket connection with the given namespace for server using Socket.io library, also it creates two LiveData objects,i.e.(one for RestApi response, other is for socket connection live response).
 /STEP 3/ Inside onStart() of our MainActivity we have attached observers for both the LiveData created in ViewModel and have removed the listeners in onStop().
