@@ -57,7 +57,7 @@ public class SocketViewModel extends ViewModel {
         loadPastData();
         {
             try {
-                mSocket = IO.socket("http://kaboom.rksv.net/watch");          //Initialize connection
+                mSocket = IO.socket("http://YOUR_SERVER_NAMESPACE_CONNECTION");          //Initialize connection
             } catch (URISyntaxException e) {
             }
         }
